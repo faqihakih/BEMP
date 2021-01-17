@@ -21,4 +21,10 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use('/', mainRouter)
+app.use(function (req, res) {
+    res.status(404).json({
+      msg: "Data Not Found",
+      status: 404,
+    });
+  });
 module.exports = app
